@@ -15,11 +15,11 @@ import RealityKit
 class ViewModel {
 
     private var contentEntity = Entity()
+    private var itemCount = 0 // Track the number of items added
 
     func setupContentEntity() -> Entity {
         return contentEntity
     }
-
     func addWorldText(text: String) -> Entity {
 
         let textMeshResource: MeshResource = .generateText(text,
@@ -38,10 +38,13 @@ class ViewModel {
 
         return textEntity
     }
+    
+
     func addText(text: String, position: SIMD3<Float>) -> Entity {
+        // Adjust font size further if needed
         let textMeshResource: MeshResource = .generateText(text,
-                                                           extrusionDepth: 0.05,
-                                                           font: .systemFont(ofSize: 0.04),
+                                                           extrusionDepth: 0.025, // Smaller extrusion depth for finer text
+                                                           font: .systemFont(ofSize: 0.02), // Further reduce font size for 50% smaller text
                                                            containerFrame: .zero,
                                                            alignment: .center,
                                                            lineBreakMode: .byWordWrapping)
@@ -52,25 +55,30 @@ class ViewModel {
         contentEntity.addChild(textEntity)
         return textEntity
     }
-    
-
     func addBudgetDetails(_ details: [BudgetDetail]) {
-//        let spacing: Float = 0.2 // Adjust spacing as needed
-//        var currentPosition = SIMD3<Float>(0, 0, -1)
-        
-        let startingHeight: Float = 0.5 // Adjust this value to set the starting height
-        let spacing: Float = 0.1 // Adjusted for closer vertical list structure
-        var currentPosition = SIMD3<Float>(0, startingHeight, -1)
-
+        let rowSpacing: Float = 0.1 // Vertical spacing between each text
+        let columnSpacing: Float = 0.5 // Horizontal spacing between columns
+        var currentPosition = SIMD3<Float>(-1, 1, -1) // Start 2 meters higher and 2 meters to the left
+        let rowsPerColumn = 10
+        var currentRow = 0
 
         for detail in details {
             let text = """
             Fiscal Year: \(detail.fiscalYear), Budget: \(detail.budget)
             \(detail.character)
             """
+            
+            // Add the text entity at the current position
             addText(text: text, position: currentPosition)
-            print("added text! ", text, currentPosition)
-            currentPosition.z -= spacing // Move to the next position
+            
+            // Move down for the next item; after 10 items, reset row, move to the next column
+            currentRow += 1
+            if currentRow % rowsPerColumn == 0 {
+                currentPosition.x -= columnSpacing // Move to the next column to the left
+                currentPosition.y = 3 // Reset back to the starting height
+            } else {
+                currentPosition.y -= rowSpacing // Move down in the current column
+            }
         }
     }
 }

@@ -8,6 +8,26 @@
 import SwiftUI
 import RealityKit
 import RealityKitContent
+import AVFoundation
+import AVKit
+
+// VideoPlayerView to integrate AVPlayer with SwiftUI
+struct VideoPlayerView: UIViewRepresentable {
+    var videoURL: URL
+    
+    func makeUIView(context: Context) -> UIView {
+        let player = AVPlayer(url: videoURL)
+        let playerLayer = AVPlayerLayer(player: player)
+        let view = UIView()
+        playerLayer.frame = view.bounds
+        playerLayer.videoGravity = .resizeAspect
+        view.layer.addSublayer(playerLayer)
+        player.play()
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {}
+}
 
 struct BudgetDetail: Identifiable, Hashable {
     let id = UUID()
@@ -61,7 +81,14 @@ struct ContentView: View {
                 .frame(height: 180)
                 .padding(.vertical, 20)
                 .clipShape(RoundedRectangle(cornerRadius: 10)) // Rounded corners
-            
+//            if let videoURL = Bundle.main.url(forResource: "matrix-guns", withExtension: "mp4") {
+//                VideoPlayerView(videoURL: videoURL)
+//                    .frame(height: 180)
+//                    .padding(.vertical, 20)
+//                    .clipShape(RoundedRectangle(cornerRadius: 10))
+//            } else {
+//                Text("Video file not found.")
+//            }
             Button("Show Data") {
                     self.showData.toggle() // Toggle showing the data
                     if budgetDetails.isEmpty {

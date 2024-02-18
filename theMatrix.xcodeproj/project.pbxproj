@@ -17,6 +17,7 @@
 		FA443A0C2B8162C900776150 /* budget_data.csv in Resources */ = {isa = PBXBuildFile; fileRef = FA443A0B2B8162C900776150 /* budget_data.csv */; };
 		FAE169E12B81741B005D04BA /* ARTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE169E02B81741B005D04BA /* ARTableView.swift */; };
 		FAE169E42B817BAB005D04BA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE169E32B817BAB005D04BA /* ViewModel.swift */; };
+		FAE169E92B819238005D04BA /* matrix-guns.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FAE169E82B819238005D04BA /* matrix-guns.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		FA443A0B2B8162C900776150 /* budget_data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = budget_data.csv; sourceTree = "<group>"; };
 		FAE169E02B81741B005D04BA /* ARTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTableView.swift; sourceTree = "<group>"; };
 		FAE169E32B817BAB005D04BA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		FAE169E72B8191A0005D04BA /* matrix-guns.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "matrix-guns.mp4"; sourceTree = "<group>"; };
+		FAE169E82B819238005D04BA /* matrix-guns.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "matrix-guns.mp4"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,7 @@
 		FA4439DD2B81614F00776150 = {
 			isa = PBXGroup;
 			children = (
+				FAE169E82B819238005D04BA /* matrix-guns.mp4 */,
 				FA4439E82B81614F00776150 /* theMatrix */,
 				FA4439E92B81614F00776150 /* Packages */,
 				FA443A002B81615000776150 /* theMatrixTests */,
@@ -92,6 +96,7 @@
 				FA4439EF2B81614F00776150 /* ContentView.swift */,
 				FA4439F12B81614F00776150 /* ImmersiveView.swift */,
 				FA443A0B2B8162C900776150 /* budget_data.csv */,
+				FAE169E72B8191A0005D04BA /* matrix-guns.mp4 */,
 				FA4439F32B81615000776150 /* Assets.xcassets */,
 				FA4439F82B81615000776150 /* Info.plist */,
 				FA4439F52B81615000776150 /* Preview Content */,
@@ -224,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4439F72B81615000776150 /* Preview Assets.xcassets in Resources */,
+				FAE169E92B819238005D04BA /* matrix-guns.mp4 in Resources */,
 				FA4439F42B81615000776150 /* Assets.xcassets in Resources */,
 				FA443A0C2B8162C900776150 /* budget_data.csv in Resources */,
 			);
