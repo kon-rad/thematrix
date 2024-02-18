@@ -41,7 +41,7 @@ class ViewModel {
     func addText(text: String, position: SIMD3<Float>) -> Entity {
         let textMeshResource: MeshResource = .generateText(text,
                                                            extrusionDepth: 0.05,
-                                                           font: .systemFont(ofSize: 0.3),
+                                                           font: .systemFont(ofSize: 0.04),
                                                            containerFrame: .zero,
                                                            alignment: .center,
                                                            lineBreakMode: .byWordWrapping)
@@ -55,8 +55,13 @@ class ViewModel {
     
 
     func addBudgetDetails(_ details: [BudgetDetail]) {
-        let spacing: Float = 0.2 // Adjust spacing as needed
-        var currentPosition = SIMD3<Float>(0, 0, -1)
+//        let spacing: Float = 0.2 // Adjust spacing as needed
+//        var currentPosition = SIMD3<Float>(0, 0, -1)
+        
+        let startingHeight: Float = 0.5 // Adjust this value to set the starting height
+        let spacing: Float = 0.1 // Adjusted for closer vertical list structure
+        var currentPosition = SIMD3<Float>(0, startingHeight, -1)
+
 
         for detail in details {
             let text = """

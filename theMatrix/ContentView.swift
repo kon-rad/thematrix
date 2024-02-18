@@ -54,12 +54,20 @@ struct ContentView: View {
 //            Model3D(named: "Scene", bundle: realityKitContentBundle)
 //                .padding(.bottom, 10)
             Text("Welcome to the Matrix")
+            
+            Image("logo-1")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 180)
+                .padding(.vertical, 20)
+                .clipShape(RoundedRectangle(cornerRadius: 10)) // Rounded corners
+            
             Button("Show Data") {
                     self.showData.toggle() // Toggle showing the data
                     if budgetDetails.isEmpty {
                         // Load the data only if it hasn't been loaded yet
                         budgetDetails = loadBudgetDetailsFromCSV() ?? []
-                        viewModel.addBudgetDetails(loadBudgetDetails())
+                        viewModel.addBudgetDetails(budgetDetails)
                     }
                 print("self.showData: ", self.showData)
                 }

@@ -19,7 +19,7 @@ struct ImmersiveView: View {
 //                content.add(scene)
 //            }
             
-            _ = viewModel.addWorldText(text: "Hello World!")
+            _ = viewModel.addWorldText(text: "Welcome to the Matrix!")
             content.add(viewModel.setupContentEntity())
             print("adding reality view")
 //            content.add(viewModel.setupContentEntity())
